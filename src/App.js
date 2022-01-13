@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
+import AddTaskForm from './components/AddTaskForm';
 import Header from './components/Header';
 import Tasks from './components/Tasks';
 
 const App = () => {
+  const [ showAdd, setShowAdd ] = useState(false);
   const [ tasks, setTasks ] = useState(
     [
       {
@@ -24,11 +26,20 @@ const App = () => {
         reminder: false,
       },
     ]
-  )
+  );
+
+  const handleShowAddTask = () => {
+    setShowAdd(!showAdd);
+  }
+
   return (
     <div className='container'>
       <header>
-        <Header />
+        <Header showAdd={showAdd} onShowAddTask={handleShowAddTask} />
+        {showAdd && 
+          <div className="header__toggler">
+            <AddTaskForm />
+          </div>}
       </header>
       <main>
         <Tasks tasks={tasks} />

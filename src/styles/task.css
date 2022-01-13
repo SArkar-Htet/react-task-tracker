@@ -1,0 +1,30 @@
+
+.task {
+  background: #f4f4f4;
+  margin: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.task.reminder {
+  border-left: 5px solid green;
+}
+
+.task__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.task__title {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.task__body {
+  font-size: 14px;
+}
+
+.task__time-stamp {
+  color: #7e7979;
+}

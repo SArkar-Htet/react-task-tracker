@@ -28,14 +28,14 @@ const App = () => {
     ]
   );
 
-  const handleShowAddTask = () => {
+  const handleToggle = () => {
     setShowAdd(!showAdd);
   }
 
   return (
     <div className='container'>
       <header>
-        <Header showAdd={showAdd} onShowAddTask={handleShowAddTask} />
+        <Header showAdd={showAdd} handleToggle={handleToggle} />
         {showAdd && 
           <div className="header__toggler">
             <AddTaskForm />

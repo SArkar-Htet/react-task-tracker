@@ -1,9 +1,9 @@
-const Button = ({ color, text, onShowAddTask }) => {
+const Button = ({ color, text, handleToggle }) => {
   return (
     <button 
       className="btn" 
       style={{ backgroundColor:color }} 
-      onClick={onShowAddTask}>
+      onClick={handleToggle}>
       {text}
     </button>
   )

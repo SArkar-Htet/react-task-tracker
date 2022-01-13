@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
 
-const AddTaskForm = () => {
-  const [taskName, setTaskName] = useState("");
+const AddTaskForm = ({onAddTask}) => {
+  const [task, setTask] = useState("");
   const [dateTime, setDateTime] = useState("");
   const [reminder, setReminder] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!taskName) {
+    if (!task) {
       alert("Please add task");
+      return;
     }
-    setTaskName("");
+    onAddTask({text: task, time: dateTime, reminder});
+    setTask("");
     setDateTime("");
     setReminder(false);
   }
@@ -23,9 +25,9 @@ const AddTaskForm = () => {
           type="text" 
           placeholder="Add Task" 
           id="task" 
-          name='taskName'
-          value={taskName} 
-          onChange={(e) => setTaskName(e.target.value)} 
+          name='task'
+          value={task} 
+          onChange={(e) => setTask(e.target.value)} 
         />
       </div>
       <div className="form-control">
@@ -45,7 +47,7 @@ const AddTaskForm = () => {
           type="checkbox" 
           name='reminder'
           id="reminder"
-          value={reminder}
+          checked={reminder}
           onChange={(e) => setReminder(e.target.checked)} 
         />
       </div>

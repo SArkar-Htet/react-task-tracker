@@ -32,13 +32,19 @@ const App = () => {
     setShowAdd(!showAdd);
   }
 
+  const addTask = (task) => {
+    const id = Math.floor(Math.random() * 10000) + 1;
+    const newTask = {id, ...task}
+    setTasks([...tasks, newTask]);
+  }
+
   return (
     <div className='container'>
       <header>
         <Header showAdd={showAdd} handleToggle={handleToggle} />
         {showAdd && 
           <div className="header__toggler">
-            <AddTaskForm />
+            <AddTaskForm onAddTask={addTask} />
           </div>}
       </header>
       <main>

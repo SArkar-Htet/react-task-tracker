@@ -38,6 +38,11 @@ const App = () => {
     setTasks([...tasks, newTask]);
   }
 
+  const handleDelete = (id) => {
+    const newTasks = tasks.filter(task => task.id !== id);
+    setTasks([newTasks]);
+  }
+
   return (
     <div className='container'>
       <header>
@@ -48,7 +53,7 @@ const App = () => {
           </div>}
       </header>
       <main>
-        <Tasks tasks={tasks} />
+        <Tasks tasks={tasks} onDelete={handleDelete} />
       </main>
     </div>
   )

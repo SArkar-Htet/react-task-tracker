@@ -90,3 +90,7 @@ footer {
 .text-danger {
   color: #ff0000;
 }
+
+.clickable {
+  cursor: pointer;
+}

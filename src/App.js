@@ -40,7 +40,14 @@ const App = () => {
 
   const handleDelete = (id) => {
     const newTasks = tasks.filter(task => task.id !== id);
-    setTasks([newTasks]);
+    setTasks(newTasks);
+  }
+
+  const toggleReminder = (id) => {
+    const newTasks = tasks.map(task => (
+      task.id === id ? {...task, reminder: !task.reminder} : {...task})
+    );
+    setTasks(newTasks);
   }
 
   return (
@@ -53,7 +60,7 @@ const App = () => {
           </div>}
       </header>
       <main>
-        <Tasks tasks={tasks} onDelete={handleDelete} />
+        <Tasks tasks={tasks} onDelete={handleDelete} onReminder={toggleReminder} />
       </main>
     </div>
   )
